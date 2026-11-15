@@ -18,9 +18,9 @@ app.use("/api/message", messageRouter);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get("*", (_ , res) => {
-    res.sendFile(express.static(path.join(__dirname, "../frontend", "dist", "index.html")));
-  })
+  app.get("*", (_, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
 }
 
 app.listen(PORT, () => {
